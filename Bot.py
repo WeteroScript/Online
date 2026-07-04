@@ -23,7 +23,10 @@ NOTIFY_CHAT_ID = int(os.getenv("NOTIFY_CHAT_ID", "-1003980753812"))
 API_URL = "https://api.blackrussia.online/client/servers.json"
 
 # Как часто опрашивать API (в секундах)
-POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "1"))
+POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "60"))
+
+# Задержка между отправкой уведомлений в канал (в секундах)
+SEND_DELAY = float(os.getenv("SEND_DELAY", "0.8"))
 
 # Файл, в котором бот хранит последнее известное состояние серверов
 # (нужно, чтобы после перезапуска бот "помнил" прошлые значения онлайна)
@@ -180,6 +183,9 @@ async def check_servers_once(state: dict) -> dict:
                     await bot.send_message(NOTIFY_CHAT_ID, text)
                 except Exception as e:
                     logger.error("Не удалось отправить сообщение в канал: %s", e)
+                # Задержка между отправками сообщений, чтобы не упереться
+                # в лимиты Telegram при массовых изменениях онлайна
+                await asyncio.sleep(SEND_DELAY)
 
         state[server["id"]] = {"online": server["online"], "name": server["name"]}
 
