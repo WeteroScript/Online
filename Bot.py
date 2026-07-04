@@ -33,7 +33,7 @@ SEND_DELAY = float(os.getenv("SEND_DELAY", "0.8"))
 STATE_FILE = os.path.join(os.path.dirname(__file__), "state.json")
 
 # Текст, который бот отправляет в личные сообщения
-PRIVATE_REPLY_TEXT = "Доступ запрещён ⚠️ канал @BlackRussiaOnlineServer"
+PRIVATE_REPLY_TEXT = "Доступ запрещён ⚠️ канал @BlackRussiaOnlineServers"
 
 # Часовой пояс для отображения времени в уведомлениях (МСК = UTC+3)
 TZ = timezone(timedelta(hours=3))
