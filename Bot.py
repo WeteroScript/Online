@@ -23,7 +23,7 @@ NOTIFY_CHAT_ID = int(os.getenv("NOTIFY_CHAT_ID", "-1003980753812"))
 API_URL = "https://api.blackrussia.online/client/servers.json"
 
 # Как часто опрашивать API (в секундах)
-POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "60"))
+POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "1"))
 
 # Задержка между отправкой уведомлений в канал (в секундах)
 SEND_DELAY = float(os.getenv("SEND_DELAY", "0.8"))
