@@ -26,7 +26,7 @@ API_URL = "https://api.blackrussia.online/client/servers.json"
 POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "1"))
 
 # Задержка между отправкой уведомлений в канал (в секундах)
-SEND_DELAY = float(os.getenv("SEND_DELAY", "0.8"))
+SEND_DELAY = float(os.getenv("SEND_DELAY", "1.3"))
 
 # Файл, в котором бот хранит последнее известное состояние серверов
 # (нужно, чтобы после перезапуска бот "помнил" прошлые значения онлайна)
